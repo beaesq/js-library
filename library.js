@@ -14,6 +14,8 @@ function addBookToLibrary(title, author, pages, isRead) {
 
 function displayBooks() {
   let divContainer = document.querySelector('#card-container');
+  divContainer.innerHTML = "";
+
   for (const book of myLibrary) {
     const divCard = document.createElement('div');
     divCard.classList.add('card');
@@ -43,6 +45,18 @@ function displayBooks() {
   }
 }
 
+const form = document.querySelector('#form-new-book');
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  addBookToLibrary(form.elements["title"].value, form.elements["author"].value, form.elements["pages"].value, form.elements["isRead"].value == "yes" ? true : false);
+  displayBooks();
+  modal.style.display = 'none';
+  const container = document.getElementById('card-container');
+  container.scrollTo(0, container.scrollHeight);
+});
+
 // new book modal
 const modal = document.getElementById('new-book-modal');
 const modalBtn = document.getElementById('btn-new-book');
@@ -66,10 +80,6 @@ addBookToLibrary('1984', 'George Orwell', 328, true);
 addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
 addBookToLibrary('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', 42, false);
 addBookToLibrary('1984', 'George Orwell', 328, true);
-addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
-addBookToLibrary('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', 42, false);
-addBookToLibrary('1984', 'George Orwell', 328, true);
-addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
-addBookToLibrary('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', 42, false);
+
 
 displayBooks();

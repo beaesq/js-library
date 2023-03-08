@@ -18,15 +18,24 @@
     <div class="modal-content">
       <div class="modal-header">Add a new book</div>
       <span class="close">&times</span>
-      <form action="" method="post" class="form-new-book">
-        <label for="new-title" id="label-new-title">Title</label>
-        <input type="text" name="new-title" id="new-title">
-        <label for="new-author" id="label-new-author">Author</label>
-        <input type="text" name="new-author" id="new-author">
-        <label for="new-pages" id="label-new-pages">Number of pages</label>
-        <input type="text" name="new-pages" id="new-pages">
-        <label for="new-isRead" id="label-new-isRead">Have you read it?</label>
-        <input type="checkbox" name="new-isRead" id="new-isRead">
+      <form action="index.html" method="post" id="form-new-book">
+        <label for="title" id="label-title">Title</label>
+        <input type="text" name="title" id="title">
+        <label for="author" id="label-author">Author</label>
+        <input type="text" name="author" id="author">
+        <label for="pages" id="label-pages">Number of pages</label>
+        <input type="text" name="pages" id="pages">
+        <fieldset>
+          <legend id="legend-isRead">Have you read it?</legend>
+          <div>
+            <label for="yes" id="label-yes">Yes</label>
+            <input type="radio" name="isRead" id="radio-yes" value="yes">
+          </div>
+          <div>
+            <label for="no" id="label-no">No</label>
+            <input type="radio" name="isRead" id="radio-no" value="no">
+          </div>
+        </fieldset>
         <button type="submit" id="btn-new">Add Book</button>
       </form>
     </div>

@@ -101,64 +101,48 @@ button#btn-new-book {
   color: var(--text-color);
 }
 
-.form-new-book {
+#form-new-book {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto auto auto auto auto auto;
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  grid-template-areas: 
-    "label-new-title label-new-title"
-    "new-title new-title"
-    "label-new-author label-new-author"
-    "new-author new-author"
-    "label-new-pages label-new-isRead"
-    "new-pages new-isRead"
-    "btn-new btn-new";
+  gap: 10px;
   color: var(--text-color);
 }
 
-.form-new-book label {
-
+#form-new-book label {
+  grid-column: 1 / -1;
 }
 
-.form-new-book input {
-
+#form-new-book input {
+  grid-column: 1 / -1;
 }
 
-#label-new-title {
-  grid-area: label-new-title;
+#form-new-book fieldset {
+  grid-column: 2 / 3;
+  grid-row: 5 / 7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
 }
 
-#new-title {
-  grid-area: new-title;
+#form-new-book label#label-pages {
+  grid-column: 1 / 2;
 }
 
-#label-new-author {
-  grid-area: label-new-author;
+#form-new-book input#pages {
+  grid-column: 1 / 2;
 }
 
-#new-author {
-  grid-area: new-author;
+#form-new-book fieldset input {
 }
 
-#label-new-pages {
-  grid-area: label-new-pages;
-}
-
-#new-pages {
-  grid-area: new-pages;
-}
-
-#label-new-isRead {
-  grid-area: label-new-isRead;
-}
-
-#new-isRead {
-  grid-area: new-isRead;
+#form-new-book fieldset label {
 }
 
 #btn-new {
-  grid-area: btn-new;
+  grid-column: 1 / -1;
   height: fit-content;
   width: fit-content;
   padding: 10px 20px;
