@@ -1,24 +1,50 @@
-* {
+:root {
+  --background-color: #041e37;
+  --card-color: #f0699c;
+  --text-color: #ffeaaa;
+  --button-color: #f0699c;
+  --button-shadow-color: #d95285;
+}
 
+* {
+  font-family: 'Anonymous Pro', monospace;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  overflow: hidden;
   width: 100%;
   height: 100%;
   position: absolute;
+  overflow: hidden;
+  margin-top: 5vh;
+  
+  background-color: var(--background-color);
+}
+
+button {
+  background-color: var(--button-color);
+  color: var(--text-color);
+}
+
+button#btn-new-book {
+  margin-top: 5vh;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  justify-self: center;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 #card-container {
   width:  80vw;
-  height: 90vh;
-  background-color: antiquewhite;
-  padding: 20px;
-  overflow: scroll;
+  height: 80vh;
+  overflow-y: scroll;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -30,8 +56,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
+  background-color: var(--card-color);
   height: 200px;
+  color: var(--text-color);
+  text-align: center;
 }
 
 .modal {
@@ -49,10 +77,10 @@ body {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--background-color);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--background-color);
   width: 80%; /* Could be more or less, depending on screen size */
 
   display: grid;
@@ -61,7 +89,7 @@ body {
 }
 
 .close {
-  color: #aaa;
+  color: var(--text-color);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -70,5 +98,74 @@ body {
 
 .modal-header {
   grid-column: 1 / 2;
-  
+  color: var(--text-color);
+}
+
+.form-new-book {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  grid-template-areas: 
+    "label-new-title label-new-title"
+    "new-title new-title"
+    "label-new-author label-new-author"
+    "new-author new-author"
+    "label-new-pages label-new-isRead"
+    "new-pages new-isRead"
+    "btn-new btn-new";
+  color: var(--text-color);
+}
+
+.form-new-book label {
+
+}
+
+.form-new-book input {
+
+}
+
+#label-new-title {
+  grid-area: label-new-title;
+}
+
+#new-title {
+  grid-area: new-title;
+}
+
+#label-new-author {
+  grid-area: label-new-author;
+}
+
+#new-author {
+  grid-area: new-author;
+}
+
+#label-new-pages {
+  grid-area: label-new-pages;
+}
+
+#new-pages {
+  grid-area: new-pages;
+}
+
+#label-new-isRead {
+  grid-area: label-new-isRead;
+}
+
+#new-isRead {
+  grid-area: new-isRead;
+}
+
+#btn-new {
+  grid-area: btn-new;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--button-color);
+  justify-self: center;
+  color: var(--text-color);
+  font-size: 16px;
 }

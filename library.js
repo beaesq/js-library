@@ -65,6 +65,11 @@ window.onclick = function(event) {
 addBookToLibrary('1984', 'George Orwell', 328, true);
 addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
 addBookToLibrary('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', 42, false);
-
+addBookToLibrary('1984', 'George Orwell', 328, true);
+addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
+addBookToLibrary('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', 42, false);
+addBookToLibrary('1984', 'George Orwell', 328, true);
+addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
+addBookToLibrary('The Hitchhiker\'s Guide to the Galaxy', 'Douglas Adams', 42, false);
 
 displayBooks();
