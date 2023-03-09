@@ -16,32 +16,44 @@ function displayBooks() {
   let divContainer = document.querySelector('#card-container');
   divContainer.innerHTML = "";
 
+  let index = 1;
   for (const book of myLibrary) {
     const divCard = document.createElement('div');
     divCard.classList.add('card');
-
+    divCard.setAttribute('index', index);
+    
+    const divClose = document.createElement('div');
+    divClose.classList.add('card-close');
+    divClose.setAttribute('index', index)
+    divClose.innerHTML = '&times';
+    divCard.appendChild(divClose);
+    
+    const divContent = document.createElement('div');
+    divContent.classList.add('card-content');
     const divTitle = document.createElement('div');
     divTitle.classList.add('card-text', 'card-title');
     divTitle.textContent = `${book.title}`;
-    divCard.appendChild(divTitle);
+    divContent.appendChild(divTitle);
     const divText = document.createElement('div');
     divText.classList.add('card-text');
     divText.textContent = `by`;
-    divCard.appendChild(divText);
+    divContent.appendChild(divText);
     const divAuthor = document.createElement('div');
     divAuthor.classList.add('card-text', 'card-author');
     divAuthor.textContent = `${book.author}`;
-    divCard.appendChild(divAuthor); 
+    divContent.appendChild(divAuthor); 
     const divPages = document.createElement('div');
     divPages.classList.add('card-text', 'card-pages');
     divPages.textContent = `${book.pages} pages`;
-    divCard.appendChild(divPages);
+    divContent.appendChild(divPages);
     const divRead = document.createElement('div');
     divRead.classList.add('card-text', 'card-read');
     divRead.textContent = `${book.isRead ? 'Read' : 'Not yet read'}`;
-    divCard.appendChild(divRead);
+    divContent.appendChild(divRead);
     
-    divContainer.appendChild(divCard)
+    divCard.appendChild(divContent);
+    divContainer.appendChild(divCard);
+    index++;
   }
 }
 
@@ -81,6 +93,16 @@ window.onclick = function(event) {
     modal.style.display = 'none';
   }
 }
+
+// remove card
+const cardContainer = document.getElementById('card-container');
+cardContainer.addEventListener('click',(e) => {
+  if(e.target.classList.contains('card-close')) {
+    let cardIndex = e.target.getAttribute("index");
+    myLibrary.splice(cardIndex - 1, 1);
+    displayBooks();
+  }
+});
 
 addBookToLibrary('1984', 'George Orwell', 328, true);
 addBookToLibrary('The Time Machine', 'H. G. Wells', 84, false);
