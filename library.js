@@ -64,6 +64,12 @@ const modalClose = document.getElementsByClassName('close')[0];
 
 modalBtn.onclick = function() {
   modal.style.display = "block";
+  
+  // reset form to default
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('radio-no').checked = true;
 }
 
 modalClose.onclick = function() {
